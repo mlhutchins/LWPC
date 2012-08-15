@@ -1,0 +1,12 @@
+case-id     test1
+tx          test1
+tx-data lwpc4 13 12.45 87.29 100 0 0 0
+ionosphere lwpm Oct/30/2009 00:00
+receivers 28.46 80.54
+lwflds
+print-swg 0
+print-mds 0
+print-lwf 1 
+lwf-vs-distance 20000 10000
+start
+quit

@@ -1,0 +1,14 @@
+ Select output device
+plotter     sys-scn
+ plotter     sys-prn
+ plotter     prvwPlot.hgl
+
+case-id     OMEGA coverage of the Mediterranean
+tx          lwpm
+tx-data     OMEGA-D
+ionosphere  lwpm Apr/08/97 06:30
+op-area     Mediterranean  30   10  45  -45
+map-type    conductivity
+map-area    N_Atlant rect   0  100  90  -40  7  4
+start
+quit

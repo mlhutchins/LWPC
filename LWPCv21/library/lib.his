@@ -1,0 +1,59 @@
+Change history
+
+21 Apr 98  PRF
+           prfl_specification Increased the resolution of the beta and hprime
+                              stored in the prfl_id.
+16 May 98  GRF
+           grf_cntr_flag      New routine; renamed from GRF_CNTR_CELL.
+           grf_cntr_cell      New routine to find exits from a cell.
+                              Extracted from GRF_CNTR_SEARCH.
+27 May 98  GRF
+           grf_cntr           Call to GRF_CNTR_CELL to ensure that an interior
+                              cell actually has exits before starting a contour
+                              trace; removed adjustment of contour levels when
+                              grid points have the same values as the contours.
+
+           grf_cntr_edge      Corrections for grid points having the same values
+                              as the contour level.
+
+           grf_cntr_search    Changes to allow grid values to be the same as
+                              contour levels; additional tests to properly
+                              handle cells with no exits (like when the contour
+                              closes at the entrance cell).
+15 Aug 98  LIB
+           read_c_grd         New routine to read C-Binary files.
+
+           PLT
+           plt_read_noise,    Added C-Binary format; improved error tests and
+           plt_read_signal    messages.
+
+25 Aug 98  GRF
+           grf_cntr_trace     New contour routine; consolidates common code from
+                              GRF_CNTR and GRF_CNTR_HOLES.
+           grf_cntr,          Modified to use GRF_CNTR_TRACE.
+           grf_cntr_holes
+
+06 Sep 98  LWF
+           lw_full_mc         Added test to delete modes near (90,0).
+
+           SWG
+           sw_iterat          Modifed test for adjusting BOTHT to abort the
+                              routine if the initial value of F does not satisfy
+                              the tolerance, which has been changed to 0.5 from
+                              the previous value of 0.1.
+           sw_wvgd            Added test to delete modes near (90,0).
+
+           WFD
+           wf_itrate          Modifed test for adjusting BOTHT to to abort the
+                              routine if the initial value of F does not satisfy
+                              the tolerance.
+
+13 Sep 98  LWF                Changed test on nearly identical modes for
+           lw_fast_mc         calculations across slab boundaries.
+
+08 Feb 99  LWP
+           lwp_driver         When we want to continue using the original
+                              solutions from MF_DRIVER, we must recalculate
+                              them because the list may have been modified
+                              by SW_STEP.
+

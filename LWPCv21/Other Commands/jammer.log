@@ -1,0 +1,27 @@
+Program identifier: LWPM 2.1
+
+Run started  on 05-15-2005 at 14:46:40
+file-mds    Output\                                                                                                     
+file-lwf    Output\                                                                                                     
+file-grd    Output\                                                                                                     
+case-id     Jammer coverage of the Mediterranean                                                                        
+  Name the files                                                                                                        
+tx          jam                                                                                                         
+  Identify the transmitter                                                                                              
+tx-data     OMEGA-A                                                                                                     
+  Choose the LWPM model daytime environment                                                                             
+ionosphere  lwpm day                                                                                                    
+  Define the operating area                                                                                             
+op-area     Mediterranean 30 10 45 -45                                                                                  
+  Calculate atmospheric noise using NTIA in July at 1800 UT                                                             
+a-noise     ntia July 18 1000                                                                                           
+start                                                                                                                   
+
+Restart: Number of complete paths =  8
+
+LWFields
+
+OpArea Grid
+quit                                                                                                                    
+
+Run finished on 05-15-2005 at 14:46:40

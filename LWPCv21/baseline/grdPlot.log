@@ -1,0 +1,60 @@
+ Select output device                                                                                                   
+plotter     sys-scn                                                                                                     
+ plotter     sys-prn                                                                                                    
+ plotter     grdPlot.hgl                                                                                                
+                                                                                                                        
+plot-lbl    OMEGA North Dakota in the Mediterranean Sea                                                                 
+ Specify location of GRD files                                                                                          
+file-grd    Output\                                                                                                     
+  Name the files                                                                                                        
+tx          lwpm                                                                                                        
+  Choose the vertical fields                                                                                            
+rx-data     vertical                                                                                                    
+  Define the operating area                                                                                             
+op-area     Mediterranean      30 10 45 -45                                                                             
+  Define the map area                                                                                                   
+map-area    Mediterranean rect 30 10 45 -45 7 4                                                                         
+  Choose the land delineation                                                                                           
+map-type    land coast                                                                                                  
+  Use the atmospheric noise for the NTIA model in July at 1800 UT                                                       
+a-noise     ntia Jul 18 1000                                                                                            
+  Use the default contour range with 3 dB increments                                                                    
+cntr-range  ,,3                                                                                                         
+  Use time availabilities of 50% and 90%                                                                                
+ta-level   90                                                                                                           
+  Turn on  plot of the signal                                                                                           
+plt-s       1                                                                                                           
+start                                                                                                                   
+file_id:  13Sep98 S7K LWPM 2.1 c:\lwpcv21\output\lwpm.mds
+          13Sep98 S7K LWPM 2.1 c:\lwpcv21\output\lwpm.lwf
+          13Sep98 S7K LWPM 2.1 c:\lwpcv21\output\lwpmmediterranean.grd
+prgm_id:  LWPM 2.1
+case_id:  OMEGA coverage of the Mediterranean
+prfl_id:  LWPM Day                                
+xmtr_id                tlat    tlon   freq
+omega-d                46.4    98.3   10.2
+path_id                lat1    lon1   lat2    lon2
+mediterranean          30.0    10.0   45.0   -45.0
+area_id               xlat1   xlon1  xlat2   xlon2  nlat nlon
+Mediterranean          30.0    10.0   45.0   -45.0    13   45
+nc power  incl  headng  talt  ralt  mn/dy/yr:UT    bandw  adjny Vsd
+ 1   10.    0.     0.0   0.0   0.0  00/00/00:0000     0.    0.0   0
+  Turn off plot of the signal                                                                                           
+plt-s       0                                                                                                           
+  Turn on  plot of the signal to noise ratio                                                                            
+plt-s/n     1                                                                                                           
+start                                                                                                                   
+file_id:  13Sep98 S7K LWPM 2.1 c:\lwpcv21\output\lwpm.mds
+          13Sep98 S7K LWPM 2.1 c:\lwpcv21\output\lwpm.lwf
+          13Sep98 S7K LWPM 2.1 c:\lwpcv21\output\lwpmmediterranean.grd
+prgm_id:  LWPM 2.1
+case_id:  OMEGA coverage of the Mediterranean
+prfl_id:  LWPM Day                                
+xmtr_id                tlat    tlon   freq
+omega-d                46.4    98.3   10.2
+path_id                lat1    lon1   lat2    lon2
+mediterranean          30.0    10.0   45.0   -45.0
+area_id               xlat1   xlon1  xlat2   xlon2  nlat nlon
+Mediterranean          30.0    10.0   45.0   -45.0    13   45
+nc power  incl  headng  talt  ralt  mn/dy/yr:UT    bandw  adjny Vsd
+ 1   10.    0.     0.0   0.0   0.0  00/00/00:0000     0.    0.0   0

@@ -1,0 +1,37 @@
+c     Common block for temporary files used for contour plotting
+
+      logical       save_cntr
+      integer       cells
+      integer       closestm
+      integer       closestn
+      integer       mxcells
+      integer       mxcntrp
+      integer       mxcross
+      integer       mxholes
+      integer       nrcntrp
+      integer       nrholes
+      integer       nrpts
+      real          closestr
+      real          cntrpx
+      real          cntrpy
+      real          crossing
+
+c     mxcells is dimensioned [(nrx*nry*4)/32+1] for an array 721x361
+
+      parameter    (mxcells=32536,
+     &              mxcntrp=4800,
+     &              mxcross=200,
+     &              mxholes=500)
+
+      common/grf$cntr/
+     &              save_cntr,
+     &              cells   (mxcells,2),
+     &              nrpts   (0:mxholes),
+     &              nrholes,
+     &              crossing(mxcross),
+     &              closestm(mxholes),
+     &              closestn(mxholes),
+     &              closestr(mxholes),
+     &              cntrpx  (mxcntrp),
+     &              cntrpy  (mxcntrp),
+     &              nrcntrp

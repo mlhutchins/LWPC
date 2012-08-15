@@ -1,0 +1,12 @@
+case-id lwpc
+tx lwpc
+tx-data lwpc 10  60.000 150.000 100 0 0 0
+ionosphere lwpm day
+receivers 75.205350 -30.000000
+lwflds
+print-swg 0
+print-mds 0
+print-lwf 1
+lwf-vs-distance 20000 10000
+start
+quit

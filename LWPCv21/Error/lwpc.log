@@ -1,0 +1,40 @@
+Program identifier: LWPM 2.1
+
+Run started  on 05-10-2010 at 17:17:15
+case-id lwpc                                                                                                            
+tx lwpc                                                                                                                 
+tx-data lwpc 13  71.000 -141.000 100 0 0 0                                                                              
+ionosphere lwpm day                                                                                                     
+receivers -45.863900 -170.513600                                                                                        
+lwflds                                                                                                                  
+print-swg 0                                                                                                             
+print-mds 0                                                                                                             
+print-lwf 1                                                                                                             
+lwf-vs-distance 20000 10000                                                                                             
+start                                                                                                                   
+xmtr_id                tlat    tlon   bearing  range
+lwpc                  71.00 -141.00    157.0   20000.
+
+LWFields
+file_id:  10May10 AAA LWPM 2.1 lwpc.mds
+          10May10 AAA LWPM 2.1 lwpc.lwf
+          ***
+prgm_id:  LWPM 2.1
+case_id:  lwpc
+prfl_id:  LWPM Day                                
+xmtr_id                tlat    tlon   freq
+lwpc                   71.0  -141.0   13.0
+path_id                lat1    lon1   lat2    lon2
+Receivers               0.0     0.0    0.0     0.0
+
+ lwpc                                                                            
+ freq= 13.0 tlat= 71.0 tlon=-141.0 bearng=157.0  power= 100.
+ z component  incl= 0. headng=  0. talt= 0.0 ralt= 0.0
+  dist   amplitude  phase    dist   amplitude  phase    dist   amplitude  phase  
+     0.   62.9400    0.0000 20000.   19.5213  138.9723
+ 10000.   42.0076  165.0689 13197.   35.5445  189.1591
+nc nrpt bearng  rhomx  rlat   rlon   rrho    pwr    dist incl headng talt ralt
+ 1    4  157.0 20000. -45.9 -170.5 13197.   100.      0.   0.    0.0  0.0  0.0
+End of input file
+
+Run finished on 05-10-2010 at 17:17:15

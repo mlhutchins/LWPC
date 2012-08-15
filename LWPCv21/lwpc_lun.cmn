@@ -1,0 +1,80 @@
+c     Begin logical unit number common
+
+      common/lwpc_lun/
+     &              lwpcDAT   _lun,
+     &              lwpcINP   _lun,
+     &              lwpcLOG   _lun,
+     &              lwpcPLT   _lun,
+
+     &              lwpcNDX   _lun,
+     &              lwpcPRF   _lun,
+     &              lwpcMDS   _lun,
+     &              lwpcLWF   _lun,
+     &              lwpcGRD   _lun,
+
+     &              lwpcITSN  _lun,
+     &              lwpcNTIA  _lun,
+
+     &              lwpcWFA   _lun,
+     &              lwpcWFD   _lun,
+     &              lwpcWFP   _lun,
+
+     &              lwpcCGM   _lun,
+     &              lwpcLAND  _lun,
+     &              lwpcCOAST _lun,
+     &              lwpcGROUND_lun,
+
+     &              lwpcTMP   _lun
+
+      integer       lwpcDAT   _lun,
+     &              lwpcINP   _lun,
+     &              lwpcLOG   _lun,
+     &              lwpcPLT   _lun,
+
+     &              lwpcNDX   _lun,
+     &              lwpcPRF   _lun,
+     &              lwpcMDS   _lun,
+     &              lwpcLWF   _lun,
+     &              lwpcGRD   _lun,
+
+     &              lwpcITSN  _lun,
+     &              lwpcNTIA  _lun,
+
+     &              lwpcWFA   _lun,
+     &              lwpcWFD   _lun,
+     &              lwpcWFP   _lun,
+
+     &              lwpcCGM   _lun,
+     &              lwpcLAND  _lun,
+     &              lwpcCOAST _lun,
+     &              lwpcGROUND_lun,
+
+     &              lwpcTMP   _lun
+
+c     LU:    Ext:   File:
+c     2             xmtr, map-area, op-area
+c     3      INP    Input file
+c     4      LOG    Log file
+c     50     PLT    Graphical output to a file
+
+c     11     NDX    Ionospheric profile index file
+c     12     PRF    Ionospheric profile
+c     13     MDS    Mode parameters
+c     14     LWF    Mode sum vs. distance
+c     15     GRD    Grid data
+
+c     16            ITSN data
+c     17            NTIA data
+
+c     20            Temporary storage of wf data: direct azimuth
+c     21            Temporary storage of wf data: adjoint
+c     22            Temporary storage of wf data: previous
+
+c     95            Corrected geomagnetic coordinates
+c     96            Land mass map
+c     97            Coastal outline map
+c     98            Ground conductivity map
+
+c     99            Scratch
+
+c     End logical unit number common

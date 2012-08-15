@@ -1,0 +1,14 @@
+c     LWPC file locations common block definitions
+
+      common/lwpc_cfg/
+     &              lwpcDAT_loc, lwpcMDS_loc, lwpcLWF_loc,
+     &              lwpcGRD_loc, lwpcPRF_loc, lwpcNDX_loc,
+     &              lwpcLOG_loc, lwpcINP_loc, lwpcXtr_loc,
+     &              lwpcLWT_loc, lwpcNOI_loc
+
+      character*245 lwpcDAT_loc, lwpcMDS_loc, lwpcLWF_loc,
+     &              lwpcGRD_loc, lwpcPRF_loc, lwpcNDX_loc,
+     &              lwpcLOG_loc, lwpcINP_loc, lwpcXtr_loc,
+     &              lwpcLWT_loc, lwpcNOI_loc
+
+
