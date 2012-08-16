@@ -81,7 +81,7 @@ end
 system(sprintf('cp %s/LWPCv21/save/xmtr.lis %s/LWPCv21/data',folder,folder));
 
 % if isempty(strmatch('homog',model));
-system(sprintf('rm %s/lwpc.mds',folder));
+system(sprintf('rm %s/%s/lwpc.mds',path,folder));
 % end
 % system('del C:\LWPCv21\save\delete\lwpc_cal.lwf');
 
