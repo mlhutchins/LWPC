@@ -88,7 +88,8 @@ end
 
 cd(sprintf('%s/%s',path,folder));
 
-system(sprintf('cp lwpcv21.%s/save/xmtr.lis lwpcv21.%s/data',arch,arch));
+% system(sprintf('cp lwpcv21.%s/save/xmtr.lis lwpcv21.%s/data',arch,arch));
+system(sprintf('cp lwpcv21/save/xmtr.lis lwpcv21/data',arch,arch));
 
 system('rm lwpc.mds');
 
