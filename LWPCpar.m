@@ -17,14 +17,20 @@ end
 
 lwpcProgram=sprintf('LWPC.%s',computer('arch'));
 
-worker=getCurrentTask;
-worker=worker.ID;
+
+try
+     worker=getCurrentTask;
+     worker=worker.ID;
+catch
+     worker=[];
+end
+
 
 folder=sprintf('lwpcpar%g',worker);
 path=pwd;
 
 if exist(sprintf('lwpcpar%g',worker),'dir')==0
-    system(sprintf('cp -r lwpc %s',folder));
+    system(sprintf('cp -r lwpcpar %s',folder));
     fid=fopen(sprintf('%s/lwpcDAT.loc',folder),'wt');
     fprintf(fid,'%s/%s/lwpcv21/data/',path,folder); 
 end
