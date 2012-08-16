@@ -7,7 +7,7 @@ function [power_lwpm,dist_lwpm]=LWPCpar(freq,lat,long,time,stat_lat,stat_long,mo
 
 switch nargin
     case 6
-        mode='time';
+        model='time';
         power=100;
     case 7
         power=100;
@@ -19,11 +19,11 @@ worker=getCurrentTask;
 worker=worker.ID;
 
 folder=sprintf('LWPCpar%g',worker);
+path=pwd;
 
 if exist(sprintf('LWPCpar%g',worker),'dir')==0
     system(sprintf('cp -r LWPC %s',folder));
     fid=fopen(sprintf('%s/lwpcDAT.loc',folder),'wt');
-    path=pwd;
     fprintf(fid,'%s/%s/LWPCv21/data/',path,folder); 
 end
 
@@ -73,12 +73,12 @@ end
 
 % LWPM Homogeneous day
 % text={'test2','test2',freq,lat,-long,stat_lat,-stat_long};
-% fprintf(fid,'case-id %s\ntx %s\ntx-data lwpc %g %7.3f %7.3f 100 0 0 0\nionosphere homogeneous exponential 0.3 74\nreceivers %f %f\nlwflds\nprint-swg 0\nprint-mds 0\nprint-lwf 1\nlwf-vs-distance 20000 10000\nstart\nquit',text{1:7});
+% fprintf(fid,'case-id %s\ntx %s\ntx-data lwpc %g %7.3f %7.3f 100 0 0 0\nionmatlabosphere homogeneous exponential 0.3 74\nreceivers %f %f\nlwflds\nprint-swg 0\nprint-mds 0\nprint-lwf 1\nlwf-vs-distance 20000 10000\nstart\nquit',text{1:7});
 % fclose(fid);
 
 %% Reset transmitter and model files
 
-system(sprintf('cp %s/LWPCv21/save/xmtr.lis %s/LWPCv21/data',folder,folder);
+system(sprintf('cp %s/LWPCv21/save/xmtr.lis %s/LWPCv21/data',folder,folder));
 
 % if isempty(strmatch('homog',model));
 system(sprintf('rm %s/lwpc.mds',folder));
@@ -87,7 +87,7 @@ system(sprintf('rm %s/lwpc.mds',folder));
 
 %% Run LWPC
 
-system(sprintf('./%s/lwpc lwpc',folder));
+system(sprintf('%s/%s/lwpc lwpc',path,folder));
 
 %% Read output log
 
