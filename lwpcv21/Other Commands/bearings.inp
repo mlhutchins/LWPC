@@ -1,0 +1,23 @@
+file-mds    Output\
+file-lwf    Output\
+case-id     OMEGA coverage of the Mediterranean
+  Name the output files
+tx          bearings
+  Identify the transmitter
+tx-data     OMEGA-D
+  Choose date and time
+ionosphere  lwpm Apr/15 22:00
+  Set maximum range of paths
+range-max   11000
+  Choose bearing angles at 24, 48 and 72
+bearings    24 48
++bearings   72
+  Get extra print out from the mode generation
+print-swg   2
+  Set the maximum range for the fields at 5000 km
+lwf-vs-dist 5000
+  Get extra print out from the mode summation
+print-lwf   2
+start
+quit
+

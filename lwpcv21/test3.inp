@@ -1,0 +1,12 @@
+case-id     test3
+tx          test3
+tx-data lwpc5 13 28.4592 80.5418 100 0 0 0
+ionosphere homogeneous exponential 0.32 80.5
+receivers 12.4510 87.2920
+lwflds
+print-swg 0
+print-mds 0
+print-lwf 1 
+lwf-vs-distance 10000 20000
+start
+quit

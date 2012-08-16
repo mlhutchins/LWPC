@@ -1,0 +1,8 @@
+Program identifier: LWPM 2.1
+
+Run started  on 05-20-2010 at 11:35:59
+case-id     test1                                                                                                       
+tx          test1                                                                                                       
+tx-data lwpc4 13 12.45 87.29 100 0 0 0                                                                                  
+Error
+[GET_XMTR]: I/O error   1 occurred trying to open file: /amp/fs1/mlhutch/LWPCv21/data/xmtr.lis

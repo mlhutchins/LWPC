@@ -1,0 +1,19 @@
+map_id                rect  lat1     lon1    lat2     lon2  sizex sizey
+map_id                merc  lat1     lon1    lat2     lon2  sizex sizey
+map_id                azim  lat0     lon0    range     N/A  sizex sizey
+map_id                gnom  lat0     lon0    range     N/A  sizex sizey
+map_id                orth  lat0     lon0    range     N/A  sizex sizey
+map_id                ster  lat0     lon0    range     N/A  sizex sizey
+World                 rect  -90      180      90      180    6.5   5
+Atlantic              rect   10      100      75      -40    7     5
+Pacific               rect    5     -120      70      100    7     5
+CONUS                 rect   20      130      50       60    7     4
+North000              rect    0        0      90        0    7     4
+North180              rect    0      180      90      180    7     4
+Arctic_G              gnom   90        0      3000           5     5
+Arctic_O              orth   90        0      3000           5     5
+N_Atlant              rect    0      100      90      -40    7     4
+N_Pac                 rect  -20     -120      70      100    6.5   5
+Polar                 gnom   90      -80      6000           7     7
+Mediterranean         rect   30      010      45     -045    5     4
+end

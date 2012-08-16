@@ -1,0 +1,45 @@
+xmtr_id    freq     lat      lon    pwr incl headng alt
+OMEGA-A    10.2   66.42   -13.137    10   0     0    0  Norway
+OMEGA-B    10.2   10.702   61.639    10   0     0    0  Trinidad
+OMEGA-C    10.2   21.405  157.831    10   0     0    0  Haiku, HI USA
+OMEGA-D    10.2   46.366   98.336    10   0     0    0  La Moure, ND USA
+OMEGA-E    10.2  -20.974  -55.29     10   0     0    0  La Reunion
+OMEGA-F    10.2  -43.053   65.191    10   0     0    0  Argentina
+OMEGA-G    10.2  -38.481 -146.935    10   0     0    0  Australia
+OMEGA-H    10.2   34.615 -129.453    10   0     0    0  Japan
+GBR        16     52.377    1.187    60   0     0    0  Rugby, UK
+GBZ        19.6   52.377    1.187    60   0     0    0  Rugby, UK
+GYN        45     52.377    1.187    60   0     0    0  Rugby, UK
+MSF        60     52.377    1.187    60   0     0    0  Rugby, UK
+JHZ        16.4   66.975  -13.883    50   0     0    0  Novik, Norway
+NDT        17.4   34.967 -137.017    40   0     0    0  Yosami, Japan
+NSS        21.4   39.0     76.5     250   0     0    0  Annapolis
+NWC        19.8  -21.8   -114.15   1000   0     0    0  H. E. Holt, Australia
+NPM        23.4   21.417  158.15    630   0     0    0  Lualualei
+NBA        18.6    9.05    79.65    110   0     0    0  Summit, Canal Zone
+NAA        24.0   44.633   67.283  1000   0     0    0  Cutler
+NLK        24.8   48.2    121.917   130   0     0    0  Jim Creek
+NAU        28.5   18.6     67.178     1   0     0    0  Aguada, Puerto Rico
+Sounder-T   9.34  76.55    68.62      1   0     0    0  Thule
+Sounder-H   9.34  19.633  155.6       1   0     0    0  Hawaii
+Sounder-S   9.34  52.72   113.15      1   0     0    0  Sentinel
+Silver     34.5   41.333   97.667    19   0     0    0  Silver Creek, NE
+Hawes      37.2   35      117.5      19   0     0    0  Hawes, CA
+NGR        59.0   38.15   -24.033     1   0     0    0  Nea Makri, Greece
+wwl        20.00  40.480  105.005    15   0     0    0
+wwb        60.00  40.480  105.005    15   0     0    0
+Rhaud      18.5   53.1     -7.583     1   0     0    0  Rhauderfehn, W.Germany
+Anthorn    19.0   54.915    3.273     1   0     0    0  Anthorn, England
+Thurso     55.5   58.6      3.667     1   0     0    0  Thurso, Scotland
+Driver     57.9   36.8     76.5       1   0     0    0  Driver, VA
+lf-i       57.4   63.848   22.453    19.5 0     0    0  Grindavik, Iceland
+lf-a       88.0   39.0     76.5       1   0     0    0  LF, Annapolis
+lf-h      146.10  21.417  158.150    50   0     0    0
+lf-s      135.95  38.000  122.000    50   0     0    0
+t01        39.20  40.000   97.500   100  90    90    9
+niscemi    39.90  37.154  -14.387    25   0     0    0  Niscemi, Sicily
+cu2        17.80  44.650  067.280  1100   0     0    0  Cutler, MA, Proposed
+stoc3      40.00  38.000  122.000    32   0     0    0
+hwn        36.00  21.430  158.150     1   0     0    0
+hwh        24.00  21.430  158.150  1000   0     0    0
+end

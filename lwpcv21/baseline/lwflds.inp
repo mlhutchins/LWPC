@@ -1,0 +1,19 @@
+file-mds    Output\
+file-lwf    Output\
+case-id     OMEGA coverage of the Mediterranean
+  Choose file name
+tx          bearings
+  Identify the transmitter
+tx-data     OMEGA-D
+  Choose bearings angles at 24, 48 and 72
+bearings    24 48 72
+  Choose vertical and horizontal fields at 9 km
+rx-data     horizontal 9
+  Set the maximum range for the fields at 5000 km
+lwf-vs-dist 5000
+  Get extra print out from the mode summation
+print-lwf   2
+lwflds
+start
+quit
+

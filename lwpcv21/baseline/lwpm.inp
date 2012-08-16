@@ -1,0 +1,17 @@
+file-mds    Output\
+file-lwf    Output\
+file-grd    Output\
+case-id     OMEGA coverage of the Mediterranean
+  Name the files
+tx          lwpm
+  Identify the transmitter
+tx-data     OMEGA-D
+  Choose the LWPM model daytime environment
+ionosphere  lwpm day
+  Define the operating area
+op-area     Mediterranean 30 10 45 -45
+  Calculate atmospheric noise using NTIA in July at 1800 UT
+a-noise     ntia July 18 1000
+start
+quit
+

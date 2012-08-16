@@ -1,0 +1,33 @@
+ Select output device
+plotter     sys-scn
+ plotter     sys-prn
+ plotter     grdPlot.hgl
+
+plot-lbl    OMEGA North Dakota in the Mediterranean Sea
+ Specify location of GRD files
+file-grd    Output\
+  Name the files
+tx          lwpm
+  Choose the vertical fields
+rx-data     vertical
+  Define the operating area
+op-area     Mediterranean      30 10 45 -45
+  Define the map area
+map-area    Mediterranean rect 30 10 45 -45 7 4
+  Choose the land delineation
+map-type    land coast
+  Use the atmospheric noise for the NTIA model in July at 1800 UT
+a-noise     ntia Jul 18 1000
+  Use the default contour range with 3 dB increments
+cntr-range  ,,3
+  Use time availabilities of 50% and 90%
+ta-level   90
+  Turn on  plot of the signal
+plt-s       1
+start
+  Turn off plot of the signal
+plt-s       0
+  Turn on  plot of the signal to noise ratio
+plt-s/n     1
+start
+

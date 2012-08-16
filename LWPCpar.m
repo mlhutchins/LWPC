@@ -15,16 +15,18 @@ end
 
 %% Get Worker ID and check for code
 
+lwpcProgram=sprintf('LWPC.%s',computer('arch'));
+
 worker=getCurrentTask;
 worker=worker.ID;
 
-folder=sprintf('LWPCpar%g',worker);
+folder=sprintf('lwpcpar%g',worker);
 path=pwd;
 
-if exist(sprintf('LWPCpar%g',worker),'dir')==0
-    system(sprintf('cp -r LWPC %s',folder));
+if exist(sprintf('lwpcpar%g',worker),'dir')==0
+    system(sprintf('cp -r lwpc %s',folder));
     fid=fopen(sprintf('%s/lwpcDAT.loc',folder),'wt');
-    fprintf(fid,'%s/%s/LWPCv21/data/',path,folder); 
+    fprintf(fid,'%s/%s/lwpcv21/data/',path,folder); 
 end
 
 %% Write input file
@@ -78,7 +80,7 @@ end
 
 %% Reset transmitter and model files
 
-system(sprintf('cp %s/LWPCv21/save/xmtr.lis %s/LWPCv21/data',folder,folder));
+system(sprintf('cp %s/lwpcv21/save/xmtr.lis %s/lwpcv21/data',folder,folder));
 
 % if isempty(strmatch('homog',model));
 system(sprintf('rm %s/%s/lwpc.mds',path,folder));
@@ -87,8 +89,15 @@ system(sprintf('rm %s/%s/lwpc.mds',path,folder));
 
 %% Run LWPC
 
-system(sprintf('%s/%s/lwpc lwpc',path,folder));
+%fprintf('%s/%s/LWPC lwpc\n',path,folder);
 
+cd(sprintf('%s/%s',path,folder));
+
+system(sprintf('%s/%s/%s lwpc',path,folder,lwpcProgram));
+
+cd(path)
+
+%eval(sprintf('cd %s',path));
 %% Read output log
 
 a=textread(sprintf('%s/lwpc.log',folder),'%s','headerlines',34); %open outputed log file
