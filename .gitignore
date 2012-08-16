@@ -1,0 +1,5 @@
+*.o
+*.inp
+xmtr.lis
+*.log
+*.a

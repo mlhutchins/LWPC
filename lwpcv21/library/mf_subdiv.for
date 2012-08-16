@@ -28,17 +28,15 @@ c     LWPC parameters
       nodivd=0
 
       if (nur(kb) .le. minbox .and. nui(kb) .le. minbox) then
-c         write(lwpcLOG_lun,
-c     &       '(''MF_SUBDIV: Box too small'')')
-c     MLH Error reporting removed for integration into MATLAB
+         write(lwpcLOG_lun,
+     &       '(''MF_SUBDIV: Box too small'')')
          nodivd=1
          RETURN
       end if
 
       if (nrboxs .eq. mxboxes) then
-c         write(lwpcLOG_lun,
-c     &       '(''MF_SUBDIV: Too many boxes'')')
-c     MLH Error reporting removed for integration into MATLAB
+         write(lwpcLOG_lun,
+     &       '(''MF_SUBDIV: Too many boxes'')')
          nodivd=2
          RETURN
       end if

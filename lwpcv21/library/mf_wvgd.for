@@ -225,9 +225,8 @@ c   MLH commented out for Matlab processing of log file
       if (kb .le. nrboxs) go to 20
       go to 60
 
-56    nodivd=nodivd
-c       write(lwpcLOG_lun,
-c     &    '(''         Search truncated - modes may be missed'')')
+56       write(lwpcLOG_lun,
+     &    '(''         Search truncated - modes may be missed'')')
 c      write(lwpcLOG_lun,
 c     &    '(''MF_WVGD: Box'',i3,3x,''theta real='',f7.2,1x,
 c     &      ''to'',f7.2,3x,''theta imag='',f7.2,'' to'',f7.2)')

@@ -1,6 +1,8 @@
 %Converts month date in number format to three day month
 function [mmm]=month(month_number)
 switch month_number
+    case 0
+        mmm='Dec';
     case 1
         mmm='Jan';
     case 2
@@ -25,5 +27,7 @@ switch month_number
         mmm='Nov';
     case 12
         mmm='Dec';
+    case 13
+        mmm='Jan';
 end
 end
