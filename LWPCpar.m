@@ -20,7 +20,9 @@ lwpcProgram=sprintf('LWPC.%s',computer('arch'));
 
 try
      worker=getCurrentTask;
-     worker=worker.ID;
+     if ~isempty(worker)
+          worker=worker.ID;
+     end
 catch
      worker=[];
 end
