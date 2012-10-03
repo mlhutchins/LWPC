@@ -6,6 +6,8 @@ ticL=tic;
 
 removed_stations = [2,4,9,13,14,23,27:32,34];
 
+matlabpool 4
+
 parfor i=1:4%size(station_loc,1) %stations
     % for i=size(lookup_test,3)+3:size(station_loc,1)
 
