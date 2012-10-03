@@ -41,10 +41,10 @@ parfor i= 1:size(station_loc,1) %stations
                         lat1=lat(k);
                         if m==1;
                         [lookup_day(j,k,m),lookup_dist(j,k)]=LWPCpar(m+7,lat1,long1,[2000,01,01,00,00],station_loc(i,1),station_loc(i,2),'day');
-                        lookup_night(j,k,m)=LWPCpar(m+7,lat1,long1,[2000,01,01,00,00],station_loc(i,1),station_loc(i,2),'night');
+                        lookup_night(j,k,m)=LWPCpar2(m+7,lat1,long1,[2000,01,01,00,00],station_loc(i,1),station_loc(i,2),'night');
                         else
                         lookup_day(j,k,m)=LWPCpar(m+7,lat1,long1,[2000,01,01,00,00],station_loc(i,1),station_loc(i,2),'day');
-                        lookup_night(j,k,m)=LWPCpar(m+7,lat1,long1,[2000,01,01,00,00],station_loc(i,1),station_loc(i,2),'night');
+                        lookup_night(j,k,m)=LWPCpar2(m+7,lat1,long1,[2000,01,01,00,00],station_loc(i,1),station_loc(i,2),'night');
                         end
                     end
                 end
@@ -71,7 +71,8 @@ parfor i= 1:size(station_loc,1) %stations
             fprintf(fid,'\n');
         end
         fprintf(fid,'\n');
-
+        fclose all
+        
         fid=fopen(sprintf('lookup_night_temp_%02g.dat',i-1),'a+');
         fprintf(fid,sprintf('%s - %s\n',station_name{i},datestr(now)));
         for K=1:size(lookup_night_single,1);
@@ -79,7 +80,8 @@ parfor i= 1:size(station_loc,1) %stations
             fprintf(fid,'\n');
         end
         fprintf(fid,'\n');
-
+        fclose all
+            
         fid=fopen(sprintf('lookup_dist_temp_%02g.dat',i-1),'a+');
         fprintf(fid,sprintf('%s - %s\n',station_name{i},datestr(now)));
         for K=1:size(lookup_dist,1);
@@ -87,7 +89,7 @@ parfor i= 1:size(station_loc,1) %stations
             fprintf(fid,'\n');
         end
         fprintf(fid,'\n');
-    
+        fclose all
     end
     
 end
