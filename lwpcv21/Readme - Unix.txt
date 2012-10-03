@@ -1,5 +1,11 @@
 The Long Wavelength Propagation Capability (LWPC) code was original programmed for Windows using the Watcom Fortran compilers. As these were not readily available for Unix based system the code was ported over using gfortran (http://gcc.gnu.org/fortran/) as the base compiler. The earliest version of the compiler used was 4.1.2 (need 4.3+) on a Linux machine as well as 4.4.3 on OS 10.6.
 
+Prereqs:
+gfortran, gcc, libgfortran.so.1
+
+Fedora install:
+sudo yum install gcc gcc-gfortran compat-libgfortran-41
+
 Two simple steps are needed to get LWPC running:
 
 1. Update the lwpcDAT.loc file to point towards the data folder.
