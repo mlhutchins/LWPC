@@ -24,7 +24,7 @@ parfor i= 1:size(station_loc,1) %stations
     
         fprintf('%s Station Started : %g seconds \n',station_name{i},toc(ticL));
 
-        div=90;
+        div=2;
         long=(1:div:360)-181+div/2;
         lat=(1:div:180)-91+div/2;
 
