@@ -33,12 +33,13 @@ path=pwd;
 
 if exist(sprintf('lwpcpar%g',worker),'dir')==0
     system(sprintf('cp -r lwpcpar %s',folder));
+
+    fid=fopen(sprintf('%s/lwpcDAT.loc',folder),'wt');
+    % fprintf(fid,'%s/%s/lwpcv21.%s/data/',path,folder,arch); 
+    fprintf(fid,'%s/%s/lwpcv21/data/',path,folder); 
+    fclose(fid);
+    
 end
-
-fid=fopen(sprintf('%s/lwpcDAT.loc',folder),'wt');
-% fprintf(fid,'%s/%s/lwpcv21.%s/data/',path,folder,arch); 
-fprintf(fid,'%s/%s/lwpcv21/data/',path,folder); 
-
 
 %% Write input file
 
