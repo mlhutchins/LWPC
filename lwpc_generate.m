@@ -15,8 +15,12 @@ if ~isempty(strfind(cName,'flash7'))
 elseif ~isempty(strfind(cName,'flash8'))
     offset = 1;
 else
-    warning('Wrong computer/hostname')
+    fprintf('Wrong computer/hostname\n');
 end
+
+lookupDay=cell(size(station_loc,1),1);
+lookupNight=lookupDay;
+lookupDist=lookupDay;
 
 parfor i= 1:size(station_loc,1) %stations
 
@@ -71,7 +75,7 @@ parfor i= 1:size(station_loc,1) %stations
             fprintf(fid,'\n');
         end
         fprintf(fid,'\n');
-        fclose all
+        fclose all;
         
         fid=fopen(sprintf('lookup_night_temp_%02g.dat',i-1),'a+');
         fprintf(fid,sprintf('%s - %s\n',station_name{i},datestr(now)));
@@ -80,7 +84,7 @@ parfor i= 1:size(station_loc,1) %stations
             fprintf(fid,'\n');
         end
         fprintf(fid,'\n');
-        fclose all
+        fclose all;
             
         fid=fopen(sprintf('lookup_dist_temp_%02g.dat',i-1),'a+');
         fprintf(fid,sprintf('%s - %s\n',station_name{i},datestr(now)));
@@ -89,7 +93,7 @@ parfor i= 1:size(station_loc,1) %stations
             fprintf(fid,'\n');
         end
         fprintf(fid,'\n');
-        fclose all
+        fclose all;
     end
     
 end
