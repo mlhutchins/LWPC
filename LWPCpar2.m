@@ -108,10 +108,18 @@ cd(path)
 %% Read output log
 
 a=textread(sprintf('%s/lwpc.log',folder),'%s','headerlines',34); %open outputed log file
-power_lwpm=a{5};
-dist_lwpm=a{4};
 
-power_lwpm=str2double(power_lwpm);
-dist_lwpm=str2double(dist_lwpm);
+try
+    power_lwpm=a{5};
+    dist_lwpm=a{4};
+    
+    power_lwpm=str2double(power_lwpm);
+    dist_lwpm=str2double(dist_lwpm);
+catch
+    power_lwpm = 0;
+    dist_lwpm = 0;
+    
+    fprintf('lwpc.log read error at:\n\tf=%g, la=%g, long=%g, slat=%g, slong=%g, %s\n',freq,lat,long,stat_lat,stat_long,model)
+end
 
 end
