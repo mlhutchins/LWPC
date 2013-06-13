@@ -1,34 +1,46 @@
-%%lwpc_generate Regenerate LWPC tables for given stations
+% lwpc_generate generates LWPC tables at a given resolution
+%
+%   Written by: Michael Hutchins
 
-stations
+%% Start pools
 
-ticL=tic;
+    if parallel_check
+        parallel_start;
+    end
 
-removed_stations = [2,4,9,13,14,23,27:32,34];
-
-matlabpool 4
- 
-[check,cName] = system('hostname');
-
-if ~isempty(strfind(cName,'flash7'))
-    offset = 0;
-elseif ~isempty(strfind(cName,'flash8'))
-    offset = 1;
-else
-    fprintf('Wrong computer/hostname\n');
-end
-
-lookupDay=cell(size(station_loc,1),1);
-lookupNight=lookupDay;
-lookupDist=lookupDay;
-
-parfor i= 1:size(station_loc,1) %stations
-
-    if mod(i,2)==offset
+    ticL=tic;
     
+%% Load current station data and list inactive stations
+
+    stations
+
+    removed_stations = [2,4,9,13,14,23,27:32,34];
+
+%% Get current computer name (if dividing between flashes)
+
+    [check,cName] = system('hostname');
+
+    if ~isempty(strfind(cName,'flash7'))
+        offset = 0;
+    elseif ~isempty(strfind(cName,'flash8'))
+        offset = 1;
+    else
+        fprintf('Wrong computer/hostname\n');
+    end
+
+%% Initialize cell arrays
+
+    lookupDay=cell(size(station_loc,1),1);
+    lookupNight=lookupDay;
+    lookupDist=lookupDay;
+
+%% Go through each station to generate tables
+
+    parfor i= 1:size(station_loc,1) %stations
+
         fprintf('%s Station Started : %g seconds \n',station_name{i},toc(ticL));
 
-        div=2;
+        div=1;
         long=(1:div:360)-181+div/2;
         lat=(1:div:180)-91+div/2;
 
@@ -67,7 +79,6 @@ parfor i= 1:size(station_loc,1) %stations
         lookup_day_single=squeeze(mean(lookup_day,3));
         lookup_night_single=squeeze(mean(lookup_night,3));
 
-
         fid=fopen(sprintf('lookup_day_temp_%02g.dat',i-1),'a+');
         fprintf(fid,sprintf('%s - %s\n',station_name{i},datestr(now)));
         for K=1:size(lookup_day_single,1);
@@ -76,7 +87,7 @@ parfor i= 1:size(station_loc,1) %stations
         end
         fprintf(fid,'\n');
         fclose all;
-        
+
         fid=fopen(sprintf('lookup_night_temp_%02g.dat',i-1),'a+');
         fprintf(fid,sprintf('%s - %s\n',station_name{i},datestr(now)));
         for K=1:size(lookup_night_single,1);
@@ -85,7 +96,7 @@ parfor i= 1:size(station_loc,1) %stations
         end
         fprintf(fid,'\n');
         fclose all;
-            
+
         fid=fopen(sprintf('lookup_dist_temp_%02g.dat',i-1),'a+');
         fprintf(fid,sprintf('%s - %s\n',station_name{i},datestr(now)));
         for K=1:size(lookup_dist,1);
@@ -94,14 +105,11 @@ parfor i= 1:size(station_loc,1) %stations
         end
         fprintf(fid,'\n');
         fclose all;
+
     end
-    
-end
 
-save lookup_generate
+%% Save .mat file as backup
 
+    save lookup_generate
 
-fprintf('Lookup Update Complete : %g seconds \n',toc(ticL));
-
-    
-
+    fprintf('Lookup Update Complete : %g seconds \n',toc(ticL));
