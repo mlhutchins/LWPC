@@ -48,7 +48,7 @@
         lookup_night = lookup_day;
         lookup_dist = squeeze(lookup_day(:,:,1));
 
-        if sum(i==removed_stations)==0
+        if ~ismember(i,removed_stations)
 
             for m=1:11
                 for j=1:length(long);
