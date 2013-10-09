@@ -64,6 +64,10 @@
 		if ~ismember(i,removed_stations)
 
 			parfor m = 1 : 11
+				
+				day_temp = zeros(length(long),length(lat));
+				night_temp = day_temp;
+				dist_temp = day_temp;
 
 				for j = 1 : length(long);
 
@@ -74,21 +78,21 @@
 
 						if m == 1;
 
-							[lookup_day(j,k,m),lookup_dist(j,k,m)] = ...
+							[day_temp(j,k),dist_temp(j,k)] = ...
 								LWPCpar(m+7,lat1,long1,[2000,01,01,00,00],...
 								station_loc(i,1),station_loc(i,2),'day');
 
-							lookup_night(j,k,m) =...
+							night_temp(j,k) =...
 								LWPCpar2(m+7,lat1,long1,[2000,01,01,00,00],...
 								station_loc(i,1),station_loc(i,2),'night');
 
 						else
 
-							lookup_day(j,k,m) =...
+							day_temp(j,k) =...
 								LWPCpar(m+7,lat1,long1,[2000,01,01,00,00],...
 								station_loc(i,1),station_loc(i,2),'day');
 
-							lookup_night(j,k,m) =...
+							night_temp(j,k) =...
 								LWPCpar2(m+7,lat1,long1,[2000,01,01,00,00],...
 								station_loc(i,1),station_loc(i,2),'night');
 
@@ -96,6 +100,10 @@
 					end
 				end
 
+				lookup_day(:,:,m) = day_temp;
+				lookup_night(:,:,m) = night_temp;
+				lookup_dist(:,:,m) = dist_temp;
+				
 				fprintf('%s - %s - Frequency %g kHz Done : %g seconds \n',datestr(now),station_name{i},m+7,toc(ticL));
 			end
 
