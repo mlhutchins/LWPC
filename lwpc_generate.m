@@ -16,15 +16,26 @@
 
     removed_stations = [2,4,9,13,14,23,27:32,34];
 
+%% List of stations to process
+
+	masterList = {[10 23 39 50 52 53 54],...
+				  [55 56 60 61 62 66],...
+				  [67 68 70 71 73 74],...
+				  [75 76 77 78 79 80]};
+	
 %% Get current computer name (if dividing between flashes)
 
     [check,cName] = system('hostname');
 
-    if ~isempty(strfind(cName,'flash7'))
-        offset = 0;
+    if ~isempty(strfind(cName,'flash5'))
+        stationList = masterList{1};
+    elseif ~isempty(strfind(cName,'flash6'))
+        stationList = masterList{2};
+    elseif ~isempty(strfind(cName,'flash7'))
+        stationList = masterList{3};
     elseif ~isempty(strfind(cName,'flash8'))
-        offset = 1;
-    else
+        stationList = masterList{4};
+	else
         fprintf('Wrong computer/hostname\n');
     end
 
@@ -36,8 +47,10 @@
 
 %% Go through each station to generate tables
 
-    parfor i= 1:size(station_loc,1) %stations
+    for n = 1 : length(stationList)%stations
 
+		i = stationList(n);
+		
         fprintf('%s Station Started : %g seconds \n',station_name{i},toc(ticL));
 
         div=1;
@@ -46,29 +59,50 @@
 
         lookup_day = zeros(length(long),length(lat),11);
         lookup_night = lookup_day;
-        lookup_dist = squeeze(lookup_day(:,:,1));
+        lookup_dist = lookup_day;
 
-        if ~ismember(i,removed_stations)
+		if ~ismember(i,removed_stations)
 
-            for m=1:11
-                for j=1:length(long);
-                    for k=1:length(lat);
-                        long1=long(j);
-                        lat1=lat(k);
-                        if m==1;
-                        [lookup_day(j,k,m),lookup_dist(j,k)]=LWPCpar(m+7,lat1,long1,[2000,01,01,00,00],station_loc(i,1),station_loc(i,2),'day');
-                        lookup_night(j,k,m)=LWPCpar2(m+7,lat1,long1,[2000,01,01,00,00],station_loc(i,1),station_loc(i,2),'night');
-                        else
-                        lookup_day(j,k,m)=LWPCpar(m+7,lat1,long1,[2000,01,01,00,00],station_loc(i,1),station_loc(i,2),'day');
-                        lookup_night(j,k,m)=LWPCpar2(m+7,lat1,long1,[2000,01,01,00,00],station_loc(i,1),station_loc(i,2),'night');
-                        end
-                    end
-                end
-                fprintf('%s - %s - Frequency %g kHz Done : %g seconds \n',datestr(now),station_name{i},m+7,toc(ticL));
-            end
+			parfor m = 1 : 11
 
-        end
+				for j = 1 : length(long);
 
+					for k = 1 : length(lat);
+
+						long1 = long(j);
+						lat1 = lat(k);
+
+						if m == 1;
+
+							[lookup_day(j,k,m),lookup_dist(j,k,m)] = ...
+								LWPCpar(m+7,lat1,long1,[2000,01,01,00,00],...
+								station_loc(i,1),station_loc(i,2),'day');
+
+							lookup_night(j,k,m) =...
+								LWPCpar2(m+7,lat1,long1,[2000,01,01,00,00],...
+								station_loc(i,1),station_loc(i,2),'night');
+
+						else
+
+							lookup_day(j,k,m) =...
+								LWPCpar(m+7,lat1,long1,[2000,01,01,00,00],...
+								station_loc(i,1),station_loc(i,2),'day');
+
+							lookup_night(j,k,m) =...
+								LWPCpar2(m+7,lat1,long1,[2000,01,01,00,00],...
+								station_loc(i,1),station_loc(i,2),'night');
+
+						end
+					end
+				end
+
+				fprintf('%s - %s - Frequency %g kHz Done : %g seconds \n',datestr(now),station_name{i},m+7,toc(ticL));
+			end
+
+		end
+
+        lookup_dist = squeeze(lookup_dist(:,:,1));
+		
         lookupDay{i}=lookup_day;
         lookupNight{i}=lookup_night;
         lookupDist{i}=lookup_dist;
