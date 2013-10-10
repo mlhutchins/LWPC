@@ -18,10 +18,10 @@
 
 %% List of stations to process
 
-	masterList = {[10 23 39 50 52 53 54],... %Flash5
-				  [55 60 61 66 67 75],... %Flash6
-				  [68 70 71 73 74],... %Flash7
-				  [76 77 78 79 80]}; %Flash8
+	masterList = {[10 23 39 50 52 53],... %Flash5
+				  [54 55 60 61 66],... %Flash6
+				  [67 70 71 73 74 75],... %Flash7
+				  [68 76 77 78 79 80]}; %Flash8
 	
 %% Get current computer name (if dividing between flashes)
 
@@ -49,7 +49,7 @@
 
     for n = 1 : length(stationList)%stations
 
-		i = stationList(n);
+		i = stationList(n) + 1;
 		
         fprintf('%s Station Started : %g seconds \n',station_name{i},toc(ticL));
 
