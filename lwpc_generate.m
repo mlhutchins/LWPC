@@ -21,7 +21,7 @@
 	masterList = {[10 23 39 50 52 53],... %Flash5
 				  [54 55 60 61 66],... %Flash6
 				  [67 70 71 73 74 75],... %Flash7
-				  [68 76 77 78 79 80]}; %Flash8
+				  [76 77 78 79 80]}; %Flash8
 	
 %% Get current computer name (if dividing between flashes)
 
