@@ -18,7 +18,7 @@
 
 %% List of stations to process
 
-	masterList = [0 : size(station_loc,1) - 1];
+	masterList = 0 : size(station_loc,1) - 1;
 	
 	masterList(removedStations) = [];
 	
@@ -53,8 +53,8 @@ for n = 1 : length(stationList)%stations
     fileNight = sprintf('lookup_temp/lookup_night_temp_%02g.dat',i-1);
     fileDist = sprintf('lookup_temp/lookup_dist_temp_%02g.dat',i-1);
     
-    [day,res] = lookup_import(fileDay);
-    [night,res] = lookup_import(fileNight);
+    [day,~] = lookup_import(fileDay);
+    [night,~] = lookup_import(fileNight);
     [dist,res] = lookup_import(fileDist);
 
     long = (1:res:360)-181+res/2;
@@ -67,33 +67,59 @@ for n = 1 : length(stationList)%stations
     for j = 1 : length(long);
         for k = 1 : length(lat);
             
-            %Check Day
+            %% Check Day
 			
             long1 = long(j);
             lat1 = lat(k);
+			
+			index = 1;
             
-            while isnan(day(j,k))
+			% Change grid point position by res/10 up to 5 times to get a
+			% non-NaN LWPC value
+			
+			while isnan(day(j,k)) && index <= 5
 
-                update = zeros(11,1);
-                
+				update = zeros(11,1);
+
 				parfor m = 1:11
 					update(m) = LWPCpar(m+7,lat1,long1,[2000,01,01,00,00],...
 										station_loc(i,1),station_loc(i,2),'day');
 				end
-                    
+
 				long1 = long1 + res/10;
 				lat1 = lat1 + res/10;
+
+				day(j,k) = nanmean(update);
+
+				index = index + 1;
+
+			end
+			
+			% If jittering does not work, assign to nearest real value
+			
+			if isnan(day(j,k))
 				
-                day(j,k) = nanmean(update);
-                
-            end
+				if k > 1
+					day(j,k) = day(j,k-1);
+				elseif j > 1
+					day(j,k) = day(j-1,k);
+				else
+					day(j,k) = min(day(:));
+				end
+				
+			end
             
-            %Check Night
+            %% Check Night
  			
             long1 = long(j);
             lat1 = lat(k);
             
-			while isnan(night(j,k))
+			index = 1;
+            
+			% Change grid point position by res/10 up to 5 times to get a
+			% non-NaN LWPC value
+			
+			while isnan(night(j,k)) && index <= 5
 
 				update = zeros(11,1);
 
@@ -107,6 +133,23 @@ for n = 1 : length(stationList)%stations
 
 				night(j,k) = nanmean(update);
 
+				index = index + 1;
+				
+			end
+			
+			
+			% If jittering does not work, assign to nearest real value
+			
+			if isnan(night(j,k))
+				
+				if k > 1
+					night(j,k) = night(j,k-1);
+				elseif j > 1
+					night(j,k) = night(j-1,k);
+				else
+					night(j,k) = min(night(:));
+				end
+				
 			end
 			
             %Check Dist
