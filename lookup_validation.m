@@ -60,10 +60,6 @@ for n = 1 : length(stationList)%stations
     long = (1:res:360)-181+res/2;
     lat = (1:res:180)-91+res/2;
     
-    day = squeeze(day(:,:,2));
-    night = squeeze(night(:,:,2));
-    dist = squeeze(dist(:,:,2));
-    
     for j = 1 : length(long);
         for k = 1 : length(lat);
             
