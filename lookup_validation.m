@@ -14,16 +14,21 @@
 %% Load Stations
 	stations
 
-	removedStations = [2,4,9,13,14,23,27:32,34];
+	removedStations = [2,4,9,13,14,23,32,34];
 
 %% List of stations to process
 
-	masterList = 0 : size(station_loc,1) - 1;
+	%masterList = 0 : size(station_loc,1) - 1;
 	
-	masterList(removedStations) = [];
+	%masterList(removedStations) = [];
 	
-	masterList = reshape(masterList,4,length(masterList)/4);
+	%masterList = reshape(masterList,4,length(masterList)/4);
 
+	masterList = {[26],... %Flash5
+				  [27],... %Flash6
+				  [28,29],... %Flash7
+				  [30]}; %Flash8
+	
 	
 %% Get current computer name (if dividing between flashes)
 
