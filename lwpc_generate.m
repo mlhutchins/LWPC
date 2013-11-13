@@ -10,18 +10,18 @@
 
     ticL=tic;
     
-%% Load current station data and list inactive stations
+%% Load current station data and list inactive stations in MATLAB indexing
 
     stations
 
-    removed_stations = [2,4,9,13,14,23,27:32,34];
+    removed_stations = [2,4,9,13,14,23,32,34];
 
-%% List of stations to process
+%% List of stations to process in WWLLN indexing
 
-	masterList = {[10 23 39 50 52 53],... %Flash5
-				  [54 55 60 61 66],... %Flash6
-				  [67 70 71 73 74 75],... %Flash7
-				  [76 77 78 79 80]}; %Flash8
+	masterList = {[26],... %Flash5
+				  [27],... %Flash6
+				  [28],... %Flash7
+				  [29,30]}; %Flash8
 	
 %% Get current computer name (if dividing between flashes)
 
