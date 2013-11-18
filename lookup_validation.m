@@ -50,7 +50,7 @@
 
 for n = 1 : length(stationList)%stations
 
-	i = stationList(n) + 1;
+	i = stationList{n} + 1;
 		
     fprintf('%s Station Started : %g seconds \n',station_name{i},toc(ticL));
     
