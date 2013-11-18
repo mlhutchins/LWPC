@@ -35,13 +35,13 @@
     [check,cName] = system('hostname');
 
     if ~isempty(strfind(cName,'flash5'))
-        stationList = masterList(1,:);
+        stationList = masterList{1};
     elseif ~isempty(strfind(cName,'flash6'))
-        stationList = masterList(2,:);
+        stationList = masterList{2};
     elseif ~isempty(strfind(cName,'flash7'))
-        stationList = masterList(3,:);
+        stationList = masterList{3};
     elseif ~isempty(strfind(cName,'flash8'))
-        stationList = masterList(4,:);
+        stationList = masterList{4};
 	else
         fprintf('Wrong computer/hostname\n');
     end
@@ -50,7 +50,7 @@
 
 for n = 1 : length(stationList)%stations
 
-	i = stationList{n} + 1;
+	i = stationList(n) + 1;
 		
     fprintf('%s Station Started : %g seconds \n',station_name{i},toc(ticL));
     
