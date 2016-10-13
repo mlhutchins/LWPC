@@ -30,7 +30,7 @@ There is a known issue involved the [input file name].mds file. If this file is 
 
 If there are errors in any of the data files (coast$d.dat) run BuildData.cmd
 
-An example input file and output file are test1.inp and test1.log.
+An example input file and output file are lwpc.inp and lwpc.log.
 
 Tip for troubleshooting code:
 The program seems to have various memory errors that can propagate through undetected. The best thing to do is to add variables to common blocks or sometimes just adding in a line will change things. Also print statements that output the variable under inspection can and will change that variable in the code.
